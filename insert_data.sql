@@ -1,38 +1,24 @@
-INSERT INTO object_of_expedition (name) VALUES
-    ('ISS'), 
-    ('Mars Rover'), 
-    ('Space Telescope');
+INSERT INTO space_station (id, name) VALUES (1, 'Alpha Station');
+INSERT INTO space_station (id, name) VALUES (2, 'Beta Station');
 
-INSERT INTO expedition (name, goal, object_of_expedition_id) VALUES
-    ('International Space Station Expedition 65', 'Research on microgravity effects', 1),
-    ('Mars Exploration Mission 2024', 'Search for signs of past life', 2),
-    ('Hubble Space Telescope Observation', 'Study of distant galaxies', 3);
+INSERT INTO expedition (id, name, goal, space_station_id) VALUES (1, 'Mission to Mars', 'Explore the surface of Mars', 1);
+INSERT INTO expedition (id, name, goal, space_station_id) VALUES (2, 'Mission to Jupiter', 'Study the atmosphere of Jupiter', 2);
 
-INSERT INTO employee (name, post) VALUES
-    ('John Doe', 'Astronaut'),
-    ('Jane Smith', 'Engineer'),
-    ('Bob Johnson', 'Scientist');
+INSERT INTO object_of_expedition (id, name, expedition_id) VALUES (1, 'Rover', 1);
+INSERT INTO object_of_expedition (id, name, expedition_id) VALUES (2, 'Telescope', 2);
 
-INSERT INTO department (name, equipment_id, room_id) VALUES
-    ('Astronaut Team', 1, 1),
-    ('Engineering Department', 2, 2),
-    ('Research Division', 3, 3);
+INSERT INTO employee (id, name, post) VALUES (1, 'John Doe', 'Astronaut');
+INSERT INTO employee (id, name, post) VALUES (2, 'Jane Smith', 'Engineer');
 
-INSERT INTO equipment (name) VALUES
-    ('Space Suit'),
-    ('Robotics Arm'),
-    ('Telescope');
+INSERT INTO department (id, name, space_station_id) VALUES (1, 'Engineering', 1);
+INSERT INTO department (id, name, space_station_id) VALUES (2, 'Science', 2);
 
-INSERT INTO room (name) VALUES
-    ('Control Room'),
-    ('Lab'),
-    ('Observatory');
+INSERT INTO equipment (id, name, department_id) VALUES (1, 'Solar Panels', 1);
+INSERT INTO equipment (id, name, department_id) VALUES (2, 'Telescopes', 2);
 
-INSERT INTO space_station (name, expedition_id, department_id) VALUES
-    ('ISS', 1, 1),
-    ('Mars Station', 2, 2);
-    
-INSERT INTO expedition_employee (expedition_id, employee_id) VALUES
-    (1, 1),
-    (1, 2),
-    (2, 3);
+INSERT INTO room (id, name, department_id) VALUES (1, 'Control Room', 1);
+INSERT INTO room (id, name, department_id) VALUES (2, 'Lab', 2);
+
+INSERT INTO expedition_employee (id, expedition_id, employee_id) VALUES (1,1,1);
+INSERT INTO expedition_employee (id, expedition_id, employee_id) VALUES (2,2,1);
+INSERT INTO expedition_employee (id, expedition_id, employee_id) VALUES (3,1,2);
